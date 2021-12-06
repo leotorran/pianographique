@@ -4,10 +4,34 @@ class pianograph extends Phaser.Scene {
 
         this.input.keyboard.on('keydown', function (kevent) {
             switch (kevent.keyCode) {
-                case Phaser.Input.Keyboard.KeyCodes.LEFT:
-                    me.sonA.play()
+                case Phaser.Input.Keyboard.KeyCodes.A:
+                    me.speedA=10;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.Z:
+                    me.speedA=5;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.E:
+                    me.speedA=-5;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.UP:
+                    me.alpha=0.01;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.DOWN:
+                    me.alpha=-0.01;
                     break;
             }
+        })
+
+            this.input.keyboard.on('keyup', function (kevent) {
+                switch (kevent.keyCode) {
+                    case Phaser.Input.Keyboard.KeyCodes.UP:
+                        me.alpha=+0;
+                        break;
+                    case Phaser.Input.Keyboard.KeyCodes.DOWN:
+                        me.alpha=+0;
+                        break;
+                }
+
         });
     }
     preload() {
@@ -21,6 +45,14 @@ class pianograph extends Phaser.Scene {
     }
 
     create() {
+
+        this.speedA=2.5;
+        this.alpha=1;
+        this.width=1;
+        this.initKeyboard()
+
+
+
         this.sonA = this.sound.add('sonA', {loop: false});
         this.sonA.volume = 4
 
@@ -29,14 +61,20 @@ class pianograph extends Phaser.Scene {
          * @type {Phaser.GameObjects.Container}
          */
         this.bgContainer = this.add.container(0, 0);
+        
+//background static
 
-        /**
-         * Background
-         * @type {Phaser.GameObjects.Image}
-         */
-        let bgImg = this.add.image(0, 0, 'bg').setOrigin(0, 0);
-        bgImg.scale = 1.1;
-        this.bgContainer.add(bgImg);
+        this.background= this.add.graphics();
+        this.background.fillStyle(0xF0C500, 1);
+        this.background.fillRect(0, 0, 1300, 730);
+
+        this.bande1=  this.add.graphics();
+        this.bande1.fillStyle(0x39352D, 1);
+        this.bande1.fillRect(0, 0, 200, 730);
+
+        this.bande2=  this.add.graphics();
+        this.bande2.fillStyle(0x39352D, 1);
+        this.bande2.fillRect(200, 0, 200, 730);
 
         /**
          * Notes
@@ -48,40 +86,10 @@ class pianograph extends Phaser.Scene {
          * @type {Phaser.GameObjects.}
          */
 
-        let note1 = this.add.image(1300, 200, 'note1');
 
-        let note2 = this.physics.add.image(500, 200, 'note2');
-        note2.setVelocity(-100, 200);
-        note2.setBounce(1, 1);
-        note2.setCollideWorldBounds(true);
+    }
 
-        let note3 = this.physics.add.image(800, 200, 'note3');
-        note3.setVelocity(0, 200);
-        note3.setBounce(1, 1);
-        note3.setCollideWorldBounds(true);
-
-        let dnote1 = this.physics.add.image(800, 200, 'dnote1');
-        dnote1.setVelocity(-20, 200);
-        dnote1.setBounce(1, 1);
-        dnote1.setCollideWorldBounds(true);
-        this.initKeyboard()
-
-        this.tweens.add({
-            targets: note1,
-            x: -1500,
-            duration: 3000,
-            ease: 'Default',
-            loop: -1,}
-        )
-
-        this.tweens.add({
-            targets: note3,
-            x: -400,
-            duration: 20000,
-            ease: 'Default',
-            yoyo: true,
-
-            loop: -1,
-        })
+    update(){
+        this.bande1.alpha+=this.alpha;
     }
 }
