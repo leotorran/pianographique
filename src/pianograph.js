@@ -13,7 +13,79 @@ class pianograph extends Phaser.Scene {
         this.input.keyboard.on('keydown', function (kevent) {
             switch (kevent.keyCode) {
                 case Phaser.Input.Keyboard.KeyCodes.A:
-                    me.changeAngle=;
+                    me.angleA-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.Z:
+                    me.angleZ-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.E:
+                    me.angleE-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.R:
+                    me.angleR-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.T:
+                    me.angleT-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.Y:
+                    me.angleY-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.U:
+                    me.angleU-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.I:
+                    me.angleI-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.O:
+                    me.angleO-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.P:
+                    me.angleP-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.Q:
+                    me.angleQ-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.S:
+                    me.angleS-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.D:
+                    me.angleD-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.F:
+                    me.angleF-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.G:
+                    me.angleG-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.H:
+                    me.angleH-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.J:
+                    me.angleJ-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.K:
+                    me.angleK-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.L:
+                    me.angleL-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.M:
+                    me.angleM-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.W:
+                    me.angleW-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.X:
+                    me.angleX-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.C:
+                    me.angleC-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.V:
+                    me.angleV-=0.001;
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.N:
+                    me.angleN-=0.001;
                     break;
                 case Phaser.Input.Keyboard.KeyCodes.SPACE:
                     me.retract=-1;
@@ -54,12 +126,41 @@ class pianograph extends Phaser.Scene {
         }
 
     create() {
-
-        this.speedA=2.5;
         this.alpha=1;
-        this.changeEase=1;
-        this.height=1;
-        this.retract=1;
+        this.angleA=0.00;
+        this.angleZ=0.00;
+        this.angleE=0.00;
+        this.angleR=0.00;
+        this.angleT=0.00;
+
+        this.angleY=0.00;
+        this.angleU=0.00;
+        this.angleI=0.00;
+        this.angleO=0.00;
+        this.angleP=0.00;
+
+        this.angleQ=0.00;
+        this.angleS=0.00;
+        this.angleD=0.00;
+        this.angleF=0.00;
+        this.angleG=0.00;
+
+        this.angleH=0.00;
+        this.angleJ=0.00;
+        this.angleK=0.00;
+        this.angleL=0.00;
+        this.angleM=0.00;
+
+        this.angleW=0.00;
+        this.angleX=0.00;
+        this.angleC=0.00;
+        this.angleV=0.00;
+        this.angleB=0.00;
+
+
+
+
+
         this.initKeyboard()
 
 
@@ -594,59 +695,59 @@ class pianograph extends Phaser.Scene {
     update() {
         this.bande1.alpha+=this.alpha;
 
-        Phaser.Actions.RotateAroundDistance(this.group1.getChildren(), { x: 500, y: 300 }, 0.01,
+        Phaser.Actions.RotateAroundDistance(this.group1.getChildren(), { x: 500, y: 300 }, this.angleA,
             this.ring1.getValue());
-        Phaser.Actions.RotateAroundDistance(this.group2.getChildren(), { x: 500, y: 300 }, -0.01,
+        Phaser.Actions.RotateAroundDistance(this.group2.getChildren(), { x: 500, y: 300 }, this.angleZ,
             this.ring2.getValue())
-        Phaser.Actions.RotateAroundDistance(this.group3.getChildren(), { x: 500, y: 300 }, 0.01,
+        Phaser.Actions.RotateAroundDistance(this.group3.getChildren(), { x: 500, y: 300 }, this.angleE,
             this.ring3.getValue())
-        Phaser.Actions.RotateAroundDistance(this.group4.getChildren(), { x: 500, y: 300 }, -0.01,
+        Phaser.Actions.RotateAroundDistance(this.group4.getChildren(), { x: 500, y: 300 }, this.angleR,
             this.ring4.getValue())
-        Phaser.Actions.RotateAroundDistance(this.group5.getChildren(), { x: 500, y: 300 }, 0.01,
+        Phaser.Actions.RotateAroundDistance(this.group5.getChildren(), { x: 500, y: 300 }, this.angleT,
             this.ring5.getValue())
 
-         Phaser.Actions.RotateAroundDistance(this.modular1.getChildren(), { x: 350, y: 150 }, -0.01,
+         Phaser.Actions.RotateAroundDistance(this.modular1.getChildren(), { x: 350, y: 150 }, this.angleQ,
          this.modularR1.getValue())
-         Phaser.Actions.RotateAroundDistance(this.modular2.getChildren(), { x: 350, y: 150 }, -0.01,
+         Phaser.Actions.RotateAroundDistance(this.modular2.getChildren(), { x: 350, y: 150 }, this.angleS,
          this.modularR2.getValue())
-         Phaser.Actions.RotateAroundDistance(this.modular3.getChildren(), { x: 350, y: 150 }, -0.01,
+         Phaser.Actions.RotateAroundDistance(this.modular3.getChildren(), { x: 350, y: 150 }, this.angleD,
          this.modularR3.getValue())
-         Phaser.Actions.RotateAroundDistance(this.modular4.getChildren(), { x: 350, y: 150 }, 0.01,
+         Phaser.Actions.RotateAroundDistance(this.modular4.getChildren(), { x: 350, y: 150 }, this.angleF,
          this.modularR4.getValue())
-         Phaser.Actions.RotateAroundDistance(this.modular5.getChildren(), { x: 350, y: 150 }, 0.01,
+         Phaser.Actions.RotateAroundDistance(this.modular5.getChildren(), { x: 350, y: 150 }, this.angleG,
          this.modularR5.getValue())
 
-        Phaser.Actions.RotateAroundDistance(this.modularGR1.getChildren(), { x: 650, y: 150 }, -0.01,
+        Phaser.Actions.RotateAroundDistance(this.modularGR1.getChildren(), { x: 650, y: 150 }, this.angleW,
             this.modularRR1.getValue())
-        Phaser.Actions.RotateAroundDistance(this.modularGR2.getChildren(), { x: 650, y: 150 }, -0.01,
+        Phaser.Actions.RotateAroundDistance(this.modularGR2.getChildren(), { x: 650, y: 150 }, this.angleX,
             this.modularRR2.getValue())
-        Phaser.Actions.RotateAroundDistance(this.modularGR3.getChildren(), { x: 650, y: 150 }, -0.01,
+        Phaser.Actions.RotateAroundDistance(this.modularGR3.getChildren(), { x: 650, y: 150 }, this.angleC,
             this.modularRR3.getValue())
-        Phaser.Actions.RotateAroundDistance(this.modularGR4.getChildren(), { x: 650, y: 150 }, 0.01,
+        Phaser.Actions.RotateAroundDistance(this.modularGR4.getChildren(), { x: 650, y: 150 }, this.angleV,
             this.modularRR4.getValue())
-        Phaser.Actions.RotateAroundDistance(this.modularGR5.getChildren(), { x: 650, y: 150 }, 0.01,
+        Phaser.Actions.RotateAroundDistance(this.modularGR5.getChildren(), { x: 650, y: 150 }, this.angleB,
             this.modularRR5.getValue())
 
-        Phaser.Actions.RotateAroundDistance(this.modularB1.getChildren(), { x: 350, y: 450 }, -0.01,
+        Phaser.Actions.RotateAroundDistance(this.modularB1.getChildren(), { x: 350, y: 450 }, this.angleY,
             this.modularRB1.getValue())
-        Phaser.Actions.RotateAroundDistance(this.modularB2.getChildren(), { x: 350, y: 450 }, -0.01,
+        Phaser.Actions.RotateAroundDistance(this.modularB2.getChildren(), { x: 350, y: 450 }, this.angleU,
             this.modularRB2.getValue())
-        Phaser.Actions.RotateAroundDistance(this.modularB3.getChildren(), { x: 350, y: 450 }, -0.01,
+        Phaser.Actions.RotateAroundDistance(this.modularB3.getChildren(), { x: 350, y: 450 }, this.angleI,
             this.modularRB3.getValue())
-        Phaser.Actions.RotateAroundDistance(this.modularB4.getChildren(), { x: 350, y: 450 }, 0.01,
+        Phaser.Actions.RotateAroundDistance(this.modularB4.getChildren(), { x: 350, y: 450 }, this.angleO,
             this.modularRB4.getValue())
-        Phaser.Actions.RotateAroundDistance(this.modularB5.getChildren(), { x: 350, y: 450 }, 0.01,
+        Phaser.Actions.RotateAroundDistance(this.modularB5.getChildren(), { x: 350, y: 450 }, this.angleP,
             this.modularRB5.getValue())
 
-        Phaser.Actions.RotateAroundDistance(this.modularGRB1.getChildren(), { x: 650, y: 450 }, -0.01,
+        Phaser.Actions.RotateAroundDistance(this.modularGRB1.getChildren(), { x: 650, y: 450 }, this.angleH,
             this.modularRRB1.getValue())
-        Phaser.Actions.RotateAroundDistance(this.modularGRB2.getChildren(), { x: 650, y: 450 }, -0.01,
+        Phaser.Actions.RotateAroundDistance(this.modularGRB2.getChildren(), { x: 650, y: 450 }, this.angleJ,
             this.modularRRB2.getValue())
-        Phaser.Actions.RotateAroundDistance(this.modularGRB3.getChildren(), { x: 650, y: 450 }, -0.01,
+        Phaser.Actions.RotateAroundDistance(this.modularGRB3.getChildren(), { x: 650, y: 450 }, this.angleK,
             this.modularRRB3.getValue())
-        Phaser.Actions.RotateAroundDistance(this.modularGRB4.getChildren(), { x: 650, y: 450 }, 0.01,
+        Phaser.Actions.RotateAroundDistance(this.modularGRB4.getChildren(), { x: 650, y: 450 }, this.angleL,
             this.modularRRB4.getValue())
-        Phaser.Actions.RotateAroundDistance(this.modularGRB5.getChildren(), { x: 650, y: 450 }, 0.01,
+        Phaser.Actions.RotateAroundDistance(this.modularGRB5.getChildren(), { x: 650, y: 450 }, this.angleM,
             this.modularRRB5.getValue())
     }
 }
