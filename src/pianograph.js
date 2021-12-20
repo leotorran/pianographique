@@ -157,10 +157,6 @@ class pianograph extends Phaser.Scene {
         this.initKeyboard()
 
 
-
-        this.sonA = this.sound.add('sonA', {loop: false});
-        this.sonA.volume = 4
-
         /**
          *Container Bg
          * @type {Phaser.GameObjects.Container}
